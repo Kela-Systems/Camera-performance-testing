@@ -1,0 +1,55 @@
+camera:
+  # External / WAN address for ONVIF HTTP/SOAP.
+  # Example port mapping: internal port 80 -> external port 8080.
+  host: "CAMERA_HOST_OR_IP"
+  port: 8080
+  user: "USERNAME"
+  password: "PASSWORD"
+  discovery: false
+  tls: false
+
+ptz:
+  # Hanwha TNP-A9430RW datasheet values.
+  max_pan_speed_deg: 160.0
+  max_tilt_speed_deg: 160.0
+  accuracy_threshold_deg: 0.07
+  ptz_timeout: "PT5S"
+  home_timeout_s: 15
+  move_timeout_s: 30
+  default_pan_speed: 0.5
+  default_tilt_speed: 0.5
+  precision_test_count: 5
+  preset_test_count: 3
+  # Hanwha requires numeric-only preset names.
+  preset_name_format: "{i}"
+  # Hanwha GetStatus can lag; prefer stream when available.
+  # Options: "auto" | "stream" | "getstatus"
+  position_source: "auto"
+  velocity_start_pan: -0.5
+  velocity_travel_deg: 180.0
+  velocity_poll_hz: 80
+
+scapy:
+  interface: "en0"
+
+latency:
+  cycle_count: 3
+  motion_detect_threshold_deg: 0.05
+  mech_poll_hz: 20
+
+stream_metadata:
+  enabled: true
+  host: "CAMERA_HOST_OR_IP"
+  port: 554
+  transport: "tcp"
+  max_sample_age_ms: 500
+  startup_timeout_s: 5
+  ffmpeg_bin: "ffmpeg"
+  ffmpeg_map: "0:1"
+  profile_token: ""
+
+timeouts:
+  connect_s: 8
+  soap_s: 10
+  velocity_total_s: 20
+  latency_cycle_s: 45

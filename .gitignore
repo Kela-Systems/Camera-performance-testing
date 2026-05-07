@@ -1,0 +1,11 @@
+.venv/
+results/
+captures/
+*.bin
+config.yaml
+configs/*.yaml
+!configs/*.example.yaml
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store

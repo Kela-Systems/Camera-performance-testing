@@ -1,0 +1,53 @@
+camera:
+  # External / WAN address for ONVIF HTTP/SOAP.
+  host: "CAMERA_HOST_OR_IP"
+  port: 80
+  user: "USERNAME"
+  password: "PASSWORD"
+  discovery: false
+  tls: false
+
+ptz:
+  # FLIR PT-Series AI SR datasheet values.
+  max_pan_speed_deg: 60.0
+  max_tilt_speed_deg: 30.0
+  accuracy_threshold_deg: 0.2
+  ptz_timeout: "PT5S"
+  home_timeout_s: 15
+  move_timeout_s: 30
+  default_pan_speed: 0.5
+  default_tilt_speed: 0.5
+  precision_test_count: 5
+  preset_test_count: 3
+  preset_name_format: "test_preset_{i:02d}"
+  # FLIR GetStatus is accurate; no stream override needed.
+  # Options: "auto" | "stream" | "getstatus"
+  position_source: "getstatus"
+  velocity_start_pan: -0.5
+  velocity_travel_deg: 180.0
+  velocity_poll_hz: 80
+
+scapy:
+  interface: "en0"
+
+latency:
+  cycle_count: 3
+  motion_detect_threshold_deg: 0.05
+  mech_poll_hz: 20
+
+stream_metadata:
+  enabled: true
+  host: "CAMERA_HOST_OR_IP"
+  port: 554
+  transport: "tcp"
+  max_sample_age_ms: 500
+  startup_timeout_s: 5
+  ffmpeg_bin: "ffmpeg"
+  ffmpeg_map: "0:1"
+  profile_token: ""
+
+timeouts:
+  connect_s: 8
+  soap_s: 10
+  velocity_total_s: 20
+  latency_cycle_s: 45

@@ -1,0 +1,7 @@
+onvif-zeep>=0.2.12
+wsdiscovery>=2.0.0
+scapy>=2.5.0
+pyyaml>=6.0
+numpy>=1.26
+pytest>=8.0
+pytest-mock>=3.14
